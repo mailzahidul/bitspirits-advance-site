@@ -1,0 +1,172 @@
+{% extends 'base.html' %}
+{% load mytemplatetags %}
+{% load static %}
+{% block body %}
+
+
+<!--  Header Inclusion Start From Here -->
+{% include 'header.html' %}
+<!--  Header Inclusion Ended Here  -->
+
+
+<!-- Page Title Section -->
+<section class="page-title" style="background-image: url({{ page_banner.blog_img.url }})">
+    <div class="pattern-layer-one" style="background-image: url({% static '' %}images/main-slider/pattern-1.png)"></div>
+    <div class="pattern-layer-two" style="background-image: url({% static '' %}images/background/pattern-17.png)"></div>
+    <div class="pattern-layer-three"
+         style="background-image: url({% static '' %}images/background/pattern-18.png)"></div>
+    <div class="pattern-layer-four" style="background-image: url({% static '' %}images/icons/cross-icon.png)"></div>
+    <div class="auto-container">
+        <h2>Blog Classic</h2>
+        <ul class="page-breadcrumb">
+            <li><a href="/">home</a></li>
+            <li>Blogs</li>
+        </ul>
+    </div>
+</section>
+<!-- End Page Title Section -->
+
+<!-- Sidebar Page Container -->
+<div class="sidebar-page-container">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!-- Content Side -->
+            <div class="content-side col-lg-8 col-md-12 col-sm-12">
+                <div class="our-blogs">
+
+                    {% for item in blogs %}
+                    <!-- News Block Two -->
+                    <div class="news-block-three">
+                        <div class="inner-box">
+                            <div class="image">
+                                <a href="/blog/details/{{ item.id }}"><img src="{{ item.img.url }}" alt=""/></a>
+                            </div>
+                            <div class="lower-content">
+                                <ul class="post-meta">
+                                    <!--<li><a href="/blog/details/1"><span class="icon fa fa-user"></span> Pablo
+                                                                        Villalpando</a></li>-->
+                                    <li><a href="/blog/details/1"><span class="icon fa fa-calendar"></span>
+                                        {{ item.create_date }}</a></li>
+                                </ul>
+                                <h4><a href="/blog/details/1">{{ item.title }}</a></h4>
+                                <div class="text">{{ item.sort_description }}
+                                </div>
+                                <div class="btn-box">
+                                    <div class="btn-box-inner">
+                                        <a href="/blog/details/{{ item.id }}" class="theme-btn btn-style-three blog-config-btn"><span
+                                                class="txt">Learn More</span></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                    <!-- News Block Four -->
+                    <!--         <div class="news-block-four">
+                                 <div class="inner-box" style="background-image:url({% static '' %}images/resource/news-10.jpg)">
+                                     <div class="post-date">19 <span>JUL</span></div>
+                                     <ul class="post-info">
+                                         <li><span class="author-image"><img src="{% static '' %}images/resource/author-4.jpg"
+                                                                             alt=""/></span>By: Admin
+                                         </li>
+                                         <li>Category: <span class="theme_color">Web Designer</span></li>
+                                         <li>Comments: 150</li>
+                                     </ul>
+                                     <h3><a href="/blog/details/1">How to increase your ROI through scientific SEM?</a></h3>
+                                 </div>
+                             </div>-->
+
+                    <!-- Post Share Options -->
+                    <div class="styled-pagination text-center">
+                        <ul class="clearfix">
+                            {% if blogs.has_previous %}
+                            <li><a href="?{% url_replace request 'page' 1 %}">First </a></li>
+                            <li><a
+                                    href="?{% url_replace request 'page' blogs.previous_page_number %}">Prev </a></li>
+                            {% endif %}
+
+                            <!--                    <a class="prev" href="#"><i class="fa fa-angle-left"></i></a>-->
+
+                            {% for num in blogs.paginator.page_range %}
+                            {% if blogs.number == num %}
+
+
+                            <li class="active"><a>{{ num }}</a></li>
+
+                            {% elif num > blogs.number|add:'-5' and num < blogs.number|add:'5' %}
+
+
+                            <li><a href="?{% url_replace request 'page' num  %}">
+                                {{ num }}
+                            </a></li>
+
+
+                            {% endif %}
+                            {% endfor %}
+                            {% if blogs.has_next %}
+                            <li><a href="?{% url_replace request 'page' blogs.next_page_number %}"> Next </a></li>
+                            <li><a href="?{% url_replace request 'page' blogs.paginator.num_pages %}"> Last </a></li>
+                            {% endif %}
+
+                        </ul>
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Sidebar Side -->
+            <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
+                <aside class="sidebar sticky-top">
+
+                    <!-- Categories Widget -->
+                    <div class="sidebar-widget categories-widget">
+                        <div class="sidebar-title">
+                            <h4>Categories</h4>
+                        </div>
+                        <div class="widget-content">
+                            <ul class="blog-cat">
+                                {% for item in categories %}
+                                <li><a href="/blog/blogs/?{% url_replace request 'category' item.category.id %}">
+                                    {{ item.category.name }} <span>( {{ item.dcount }} )</span></a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Categories Widget -->
+                    <div class="sidebar-widget popular-posts">
+                        <div class="sidebar-title">
+                            <h4>Recent Post</h4>
+                        </div>
+                        <div class="widget-content">
+                            {% for item in recent_blogs %}
+                            <article class="post">
+                                <figure class="post-thumb"><img src="{{ item.img.url }}"
+                                                                alt=""><a
+                                        href="/blog/details/{{ item.id }}" class="overlay-box"><span
+                                        class="icon fa fa-link"></span></a></figure>
+                                <div class="text"><a href="/blog/details/{{ item.id }}">{{ item.title }}</a></div>
+                                <div class="post-info">{{ item.create_date }}</div>
+                            </article>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </aside>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--  Footer Inclusion Start From Here -->
+{% include 'footer.html' %}
+<!--  Footer Inclusion Ended Here  -->
+
+
+{% endblock %}

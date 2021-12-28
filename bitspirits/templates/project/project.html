@@ -1,0 +1,206 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+
+<!--  Header Inclusion Start From Here -->
+{% include 'header.html' %}
+<!--  Header Inclusion Ended Here  -->
+
+
+<!-- Page Title Section -->
+<section class="page-title" style="background-image: url({{ page_banner.project_img.url }})">
+    <div class="pattern-layer-one" style="background-image: url({% static '' %}images/main-slider/pattern-1.png)"></div>
+    <div class="pattern-layer-two" style="background-image: url({% static '' %}images/background/pattern-17.png)"></div>
+    <div class="pattern-layer-three"
+         style="background-image: url({% static '' %}images/background/pattern-18.png)"></div>
+    <div class="pattern-layer-four" style="background-image: url({% static '' %}images/icons/cross-icon.png)"></div>
+    <div class="auto-container">
+        <h2>Project Detail</h2>
+        <ul class="page-breadcrumb">
+            <li><a href="/">home</a></li>
+            <li>Project Detail</li>
+        </ul>
+    </div>
+</section>
+<!-- End Page Title Section -->
+
+<!-- Gallery Detail Section -->
+<section class="gallery-detail-section">
+    <div class="auto-container">
+        <div class="inner-container">
+            <!-- Info Section -->
+            <div class="upper-box">
+                <div class="row clearfix">
+
+                    <!-- Column -->
+                    <div class="column col-lg-3 col-md-6 col-sm-12">
+                        <ul class="list">
+                            <li><strong>PUBLISHED</strong></li>
+                            <li>{{ project.create_date }}</li>
+                        </ul>
+                    </div>
+                    <!-- Column -->
+                    <div class="column col-lg-3 col-md-6 col-sm-12">
+                        <ul class="list">
+                            <li><strong>CATEGORY</strong></li>
+                            <li>{{ project.category.name }}</li>
+                        </ul>
+                    </div>
+                    <!-- Column -->
+                    <div class="column col-lg-3 col-md-6 col-sm-12">
+                        <ul class="list">
+                            <li><strong>CLIENT</strong></li>
+                            <li>{{ project.client }}</li>
+                        </ul>
+                    </div>
+                    <!-- Column -->
+                    <div class="column col-lg-3 col-md-6 col-sm-12">
+                        <!-- Social Box -->
+                        <ul class="social-box">
+
+                            {% if project.facebook != null and project.facebook != blank %}
+                            <li class="facebook"><a target="_blank" href="{{ project.facebook }}"
+                                                    class="fa fa-facebook-f"></a>
+                            </li>
+                            {% endif %}
+                            {% if project.twitter != null and project.twitter != blank %}
+                            <li class="twitter"><a target="_blank" href="{{ project.twitter }}"
+                                                   class="fa fa-twitter"></a></li>
+                            {% endif %}
+                            {% if project.linkedin != null and project.linkedin != blank %}
+                            <li class="linkedin"><a target="_blank" href="{{ project.linkedin }}"
+                                                    class="fa fa-linkedin"></a>
+                            </li>
+                            {% endif %}
+
+                            {% if project.youtube != null and project.youtube != blank %}
+                            <li class="google"><a target="_blank" href="{{ project.youtube }}" class="fa fa-youtube-play"></a>
+                            </li>
+                            {% endif %}
+                        </ul>
+
+                        </ul>
+                    </div>
+
+                </div>
+            </div>
+            <div class="inner-box">
+                <div class="image titlt" data-tilt data-tilt-max="3">
+                    <img src="{{ project.img.url }}" alt=""/>
+                </div>
+                {% for item in project.parameters %}
+                {% if item.title != null and item.title != blank %}
+                <h3>{{ item.title }}</h3>
+                {% endif %}
+                <p>{{ item.description }}</p>
+                {% if item.quotes_title != null and item.quotes_title != blank %}
+                <blockquote>
+                    “{{ item.quotes_title }}”
+                    <span class="author-name"> -  {{ item.quotes_auth }}</span>
+                </blockquote>
+                {% endif %}
+                {% if item.img.url != null and item.img.url != blank %}
+                <div class="image titlt" data-tilt data-tilt-max="1">
+                    <img src="{{ item.img.url }}" alt=""/>
+                </div>
+                {% endif %}
+                {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Gallery Detail Section -->
+
+<!-- Related Projects Section -->
+<section class="related-projects-section">
+    <div class="auto-container">
+        <!-- Sec Title -->
+        <div class="sec-title centered">
+            <div class="title">Related PROJECTS</div>
+            <h2>Our Latest Case Works</h2>
+        </div>
+        <div class="three-item-carousel owl-carousel owl-theme">
+
+            {% for item in related_projects %}
+            <!-- Gallery Block -->
+            <div class="gallery-block">
+                <div class="inner-box">
+                    <figure class="image-box">
+                        <img src="{{ item.img.url }}" alt="">
+                        <!-- Overlay Box -->
+                        <div class="overlay-box">
+                            <div class="overlay-inner">
+                                <div class="content">
+                                    <a href="{{ item.img.url }}" data-fancybox="gallery" data-caption=""
+                                       class="icon flaticon-plus"></a>
+                                </div>
+                            </div>
+                        </div>
+                    </figure>
+                    <div class="lower-content">
+                        <div class="title">{{ item.category.name }}</div>
+                        <h5><a href="/project/details/{{ item.id }}">{{ item.title }}</a></h5>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+<!-- End Related Projects Section -->
+
+<!-- Clients Section -->
+<!--<section class="clients-section style-two">
+    <div class="auto-container">
+
+        <div class="sponsors-outer">
+            &lt;!&ndash;Sponsors Carousel&ndash;&gt;
+            <ul class="sponsors-carousel owl-carousel owl-theme">
+                <li class="slide-item">
+                    <figure class="image-box"><a href="#"><img src="{% static '' %}images/clients/1.png" alt=""></a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box"><a href="#"><img src="{% static '' %}images/clients/2.png" alt=""></a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box"><a href="#"><img src="{% static '' %}images/clients/3.png" alt=""></a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box"><a href="#"><img src="{% static '' %}images/clients/4.png" alt=""></a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box"><a href="#"><img src="{% static '' %}images/clients/5.png" alt=""></a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box"><a href="#"><img src="{% static '' %}images/clients/1.png" alt=""></a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box"><a href="#"><img src="{% static '' %}images/clients/2.png" alt=""></a>
+                    </figure>
+                </li>
+                <li class="slide-item">
+                    <figure class="image-box"><a href="#"><img src="{% static '' %}images/clients/3.png" alt=""></a>
+                    </figure>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+</section>-->
+<!-- End Clients Section -->
+
+<!--  Footer Inclusion Start From Here -->
+{% include 'footer.html' %}
+<!--  Footer Inclusion Ended Here  -->
+
+
+{% endblock %}

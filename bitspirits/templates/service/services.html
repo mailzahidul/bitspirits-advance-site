@@ -1,0 +1,92 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<!--  Header Inclusion Start From Here -->
+{% include 'header.html' %}
+<!--  Header Inclusion Ended Here  -->
+
+<!-- Page Title Section -->
+<section class="page-title" style="background-image: url({{ page_banner.service_img.url }})">
+    <div class="pattern-layer-one" style="background-image: url({% static '' %}images/main-slider/pattern-1.png)"></div>
+    <div class="pattern-layer-two" style="background-image: url({% static '' %}images/background/pattern-17.png)"></div>
+    <div class="pattern-layer-three"
+         style="background-image: url({% static '' %}images/background/pattern-18.png)"></div>
+    <div class="pattern-layer-four" style="background-image: url({% static '' %}images/icons/cross-icon.png)"></div>
+    <div class="auto-container">
+        <h2>Services</h2>
+        <ul class="page-breadcrumb">
+            <li><a href="index.html">home</a></li>
+            <li>Services</li>
+        </ul>
+    </div>
+</section>
+<!-- End Page Title Section -->
+
+<!-- Services Page Section -->
+<section class="services-page-section">
+    <div class="auto-container">
+        <div class="row clearfix">
+            {% for item in services %}
+            <!-- Service Block Four -->
+            <div class="service-block-four col-lg-4 col-md-6 col-sm-12">
+                <div class="inner-box">
+                    <div class="color-layer"></div>
+                    <div class="icon-one" style="background-image: url({% static '' %}images/icons/icon-1.png)"></div>
+                    <div class="icon-two" style="background-image: url({% static '' %}images/icons/icon-2.png)"></div>
+                    <div class="icon-three" style="background-image: url({% static '' %}images/icons/icon-3.png)"></div>
+                    <div class="icon-four" style="background-image: url({% static '' %}images/icons/icon-4.png)"></div>
+                    <div class="icon-box">
+                        <img src="{{ item.icon.url }}" style="width: 60px; height: auto;">
+                        <div class="icon-five"
+                             style="background-image: url({% static '' %}images/icons/icon-6.png)"></div>
+                    </div>
+                    <h5><a href="/service/details/{{ item.id }}">{{ item.name }}</a></h5>
+                    <div class="text">{{ item.title}}
+                    </div>
+                    <a href="/service/details/1" class="arrow-icon flaticon-arrow-pointing-to-right"></a>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+<!-- End Services Page Section -->
+
+
+<!-- Call To Action Section -->
+<section class="call-to-action-section" style="background-image: url({{ service_config.bg.url }})">
+    <div class="circle-layer" style="background-image: url({{ service_config.anim_img.url }})"></div>
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!-- Title Column -->
+            <div class="title-column col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <h2>{{ service_config.title }}</h2>
+                    <div class="text">{{ service_config.description }}</div>
+                    <a href="/contact" class="theme-btn btn-style-three service-config-btn"><span class="txt">Contact Us</span></a>
+                </div>
+            </div>
+
+            <!-- Image Column -->
+            <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <div class="image titlt" data-tilt data-tilt-max="3">
+                        <img src="{{ service_config.img.url }}" alt=""/>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- End Call To Action Section -->
+
+
+<!--  Footer Inclusion Start From Here -->
+{% include 'footer.html' %}
+<!--  Footer Inclusion Ended Here  -->
+
+
+{% endblock %}

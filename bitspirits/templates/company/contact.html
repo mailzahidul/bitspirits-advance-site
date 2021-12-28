@@ -1,0 +1,171 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+<!--  Header Inclusion Start From Here -->
+{% include 'header.html' %}
+<!--  Header Inclusion Ended Here  -->
+
+
+<!-- Page Title Section -->
+<section class="page-title" style="background-image: url({{ page_banner.contact_img.url }})"
+         xmlns="http://www.w3.org/1999/html">
+    <div class="pattern-layer-one" style="background-image: url({% static '' %}images/main-slider/pattern-1.png)"></div>
+    <div class="pattern-layer-two" style="background-image: url({% static '' %}images/background/pattern-17.png)"></div>
+    <div class="pattern-layer-three"
+         style="background-image: url({% static '' %}images/background/pattern-18.png)"></div>
+    <div class="pattern-layer-four" style="background-image: url({% static '' %}images/icons/cross-icon.png)"></div>
+    <div class="auto-container">
+        <h2>Contact Us</h2>
+        <ul class="page-breadcrumb">
+            <li><a href="index.html">home</a></li>
+            <li>Contact Us</li>
+        </ul>
+    </div>
+</section>
+<!-- End Page Title Section -->
+
+
+<!-- Contact Info Section -->
+<section class="contact-info-section">
+
+    {% if messages %}
+    {% for message in messages %}
+    <div
+            {% if message.tags %} class=" alert {{ message.tags }}" {% endif %}> {{ message }}
+    </div>
+    {% endfor %}
+    {% endif %}
+    <div class="auto-container">
+        <!-- Sec Title -->
+        <div class="sec-title centered">
+            <div class="title">{{ contact_config.title}}</div>
+            <h2>{{ contact_config.sub_title }}</h2>
+            <div class="text" style="padding:0 15%">{{ contact_config.description }}
+            </div>
+        </div>
+        <div class="inner-container">
+            <div class="row clearfix">
+
+                <!-- Column -->
+                <div class="column col-lg-6 col-md-6 col-sm-12">
+                    <div class="info-box">
+                        <div class="box-inner">
+                            <div class="icon flaticon-clock"></div>
+                            {{ company.opening_time }} <br> {{ company.holiday }}
+                        </div>
+                    </div>
+                </div>
+                <!-- Column -->
+                <div class="column col-lg-6 col-md-6 col-sm-12">
+                    <div class="info-box">
+                        <div class="box-inner">
+                            <div class="icon flaticon-pin"></div>
+                            {{ company.address }}
+                        </div>
+                    </div>
+                </div>
+                <!-- Column -->
+                <div class="column col-lg-6 col-md-6 col-sm-12">
+                    <div class="info-box">
+                        <div class="box-inner">
+                            <div class="icon flaticon-phone-call"></div>
+                            <a>{{ company.mobile }}</a></br>
+                            <a>{{ company.email }}</a>
+                        </div>
+                    </div>
+                </div>
+                <!-- Column -->
+                <div class="column col-lg-6 col-md-6 col-sm-12">
+                    <ul class="social-box">
+                        <span>Our Socials Links</span></br>
+                        {% if company.facebook != null and company.facebook != blank %}
+                        <li class="facebook"><a target="_blank" href="{{ company.facebook }}"
+                                                class="fa fa-facebook-f"></a>
+                        </li>
+                        {% endif %}
+                        {% if company.twitter != null and company.twitter != blank %}
+                        <li class="twitter"><a target="_blank" href="{{ company.twitter }}" class="fa fa-twitter"></a>
+                        </li>
+                        {% endif %}
+                        {% if company.linkedin != null and company.linkedin != blank %}
+                        <li class="facebook"><a target="_blank" href="{{ company.linkedin }}"
+                                                class="fa fa-linkedin"></a>
+                        </li>
+                        {% endif %}
+                        {% if company.youtube != null and company.youtube != blank %}
+                        <li><a target="_blank" href="{{ company.youtube }}" class="fa fa-youtube-play"></a>
+                        </li>
+                        {% endif %}
+
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</section>
+<!-- End Contact Info Section -->
+
+<!-- Contact Form Section -->
+<section class="contact-form-section">
+    <div class="auto-container">
+        <!-- Sec Title -->
+
+        <div class="inner-container">
+
+            <!-- Contact Form -->
+            <div class="contact-form">
+
+
+                <!--Contact Form-->
+                <form id="contatc_form" action="/contact/" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                            <span class="icon flaticon-user-2"></span>
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                            <span class="icon flaticon-phone-call"></span>
+                            <input type="text" name="phone" placeholder="Your Phone" required>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                            <span class="icon flaticon-big-envelope"></span>
+                            <input type="email" name="email" placeholder="Email" required>
+                        </div>
+
+                        <div class="col-lg-6 col-md-6 col-sm-12 form-group">
+                            <span class="icon flaticon-notepad"></span>
+                            <input type="text" name="subject" placeholder="Subject" required>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 form-group">
+                            <span class="icon flaticon-message"></span>
+                            <textarea name="message" placeholder="Message"></textarea>
+                        </div>
+
+                        <div class="col-lg-12 col-md-12 col-sm-12 text-center form-group">
+                            <button class="theme-btn btn-style-three contact-sub-btn" type="submit" name="submit-form"><span
+                                    class="txt">Submit Now</span></button>
+                        </div>
+
+                    </div>
+                </form>
+
+                <!--End Contact Form -->
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- End Contact Form Section -->
+
+<!--  Footer Inclusion Start From Here -->
+{% include 'footer.html' %}
+<!--  Footer Inclusion Ended Here  -->
+
+{% endblock %}

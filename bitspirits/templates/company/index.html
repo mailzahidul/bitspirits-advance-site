@@ -1,0 +1,573 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block body %}
+
+
+<!--  Header Inclusion Start From Here -->
+{% include 'header.html' %}
+<!--  Header Inclusion Ended Here  -->
+
+<!-- Sidebar Cart Item -->
+<div class="xs-sidebar-group info-group">
+    <div class="xs-overlay xs-bg-black"></div>
+    <div class="xs-sidebar-widget">
+        <div class="sidebar-widget-container">
+            <div class="widget-heading">
+                <a href="#" class="close-side-widget">
+                    X
+                </a>
+            </div>
+            <div class="sidebar-textwidget">
+
+                <!-- Sidebar Info Content -->
+                <div class="sidebar-info-contents">
+                    <div class="content-inner">
+                        <div class="logo">
+                            <a href="index.html"><img src="{% static '' %}images/logo.png" alt=""/></a>
+                        </div>
+                        <div class="content-box">
+                            <h2>About Us</h2>
+                            <p class="text">Over the years, we have worked with Fortune 500s and brand-new startups.
+                                We help ambitious businesses like yours generate more profits by building awareness,
+                                driving web traffic, connecting with customers, and growing overall sales. Give us a
+                                call.</p>
+                            <a href="contact.html" class="theme-btn btn-style-two"><span
+                                    class="txt">Contact Now</span></a>
+                        </div>
+                        <div class="contact-info">
+                            <h2>Contact Info</h2>
+                            <ul class="list-style-one">
+                                <li><span class="icon fa fa-location-arrow"></span>New York 24, Melborne City, USA
+                                </li>
+                                <li><span class="icon fa fa-phone"></span><a href="tel:+000-000-000-0000">(000)
+                                    000-000-0000</a></li>
+                                <li><span class="icon fa fa-envelope"></span><a href="mailto:Merix@gmail.com">Merix@gmail.com</a>
+                                </li>
+                                <li><span class="icon fa fa-clock-o"></span>Week Days: 09.00 to 18.00 Sunday: Closed
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Social Box -->
+                        <ul class="social-box">
+                            <li class="facebook"><a href="#" class="fa fa-facebook-f"></a></li>
+                            <li class="twitter"><a href="#" class="fa fa-twitter"></a></li>
+                            <li class="linkedin"><a href="#" class="fa fa-linkedin"></a></li>
+                            <li class="instagram"><a href="#" class="fa fa-instagram"></a></li>
+                            <li class="youtube"><a href="#" class="fa fa-youtube"></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END sidebar widget item -->
+
+<!-- Banner Section Three -->
+<section class="banner-section-three"
+         style="background: -webkit-linear-gradient(to right, {{ home_slider_config.bg_start_color }} 0%, {{ home_slider_config.bg_end_color }} 100%);
+         background: -moz-linear-gradient(to right, {{ home_slider_config.bg_start_color }} 0%, {{ home_slider_config.bg_end_color }} 100%);
+         background: linear-gradient(to right, {{ home_slider_config.bg_start_color }} 0%, {{ home_slider_config.bg_end_color }} 100%);">
+    <div class="icon-layer-one" style="background-image: url({% static '' %}images/icons/icon-16.png)"></div>
+    <div class="icon-layer-two" style="background-image: url({% static '' %}images/icons/icon-17.png)"></div>
+    <div class="icon-layer-three" style="background-image: url({% static '' %}images/background/pattern-12.png)"></div>
+    <!-- Social Box -->
+    <ul class="social-box">
+        {% if company.facebook != null and company.facebook != blank %}
+        <li><a target="_blank" href="{{ company.facebook }}" class="fa fa-facebook-f"></a>
+        </li>
+        {% endif %}
+        {% if company.twitter != null and company.twitter != blank %}
+        <li><a target="_blank" href="{{ company.twitter }}" class="fa fa-twitter"></a></li>
+        {% endif %}
+        {% if company.youtube != null and company.youtube != blank %}
+        <li><a target="_blank" href="{{ company.youtube }}" class="fa fa-youtube-play"></a>
+        </li>
+        {% endif %}
+    </ul>
+
+    <div class="auto-container">
+
+        <div class="row clearfix">
+
+            <!-- Content Column -->
+            <div class="content-column col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <h1>{{ home_slider_config.title }}</h1>
+                    <div class="text">{{ home_slider_config.description }}
+                    </div>
+                    <div class="clearfix">
+                        <a href="{{ home_slider_config.video }}" class="lightbox-image video-box"><span
+                                class="fa fa-play"><i class="ripple"></i></span> WATCH VIDEO</a>
+                        <a href="/about" class="theme-btn btn-style-three home-slider-btn"><span
+                                class="txt">about us</span></a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Image Column -->
+            <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <div class="image">
+                        <img src="{{ home_slider_config.img.url }}" alt=""/>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--Waves Container-->
+    <div>
+        <svg class="waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+             viewBox="0 24 150 28" preserveAspectRatio="none" shape-rendering="auto">
+            <defs>
+                <path id="gentle-wave"
+                      d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"/>
+            </defs>
+            <g class="parallax">
+                <use xlink:href="#gentle-wave" x="48" y="0" fill="rgba(255,255,255,0.7"/>
+                <use xlink:href="#gentle-wave" x="48" y="3" fill="rgba(255,255,255,0.5)"/>
+                <use xlink:href="#gentle-wave" x="48" y="5" fill="rgba(255,255,255,0.3)"/>
+                <use xlink:href="#gentle-wave" x="48" y="7" fill="#fff"/>
+            </g>
+        </svg>
+    </div>
+    <!--Waves end-->
+</section>
+<!-- End Banner Section Three -->
+
+<!-- Mission Section / Style Two -->
+<section class="mission-section style-two">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!-- Image Column -->
+            <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <div class="image wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                        <img src="{{ mission_config.img.url }}" alt=""/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Content Column -->
+            <div class="content-column col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <!-- Sec Title -->
+                    <div class="sec-title">
+                        <div class="title">{{ mission_config.title }}</div>
+                        <h2>{{ mission_config.sub_title }}</h2>
+                    </div>
+                    <div class="bold-text">{{ mission_config.description }}
+                    </div>
+                    <ul class="mission-list">
+                        {% for item in mission_config.missions %}
+                        <li><span class="icon"><img src="{{ item.img.url }}" alt=""/></span>
+                            {{ item.title }}
+                        </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- End Services Section Three -->
+
+<!-- Services Section Five -->
+<section class="services-section-five">
+    <div class="auto-container">
+        <!-- Sec Title -->
+        <div class="sec-title centered">
+            <div class="title">Our Services</div>
+            <h2>{{ service_config.title }}</h2>
+            <div class="text">{{ service_config.description }}
+            </div>
+        </div>
+
+        <div class="services-carousel owl-carousel owl-theme">
+            {% for item in services %}
+            <!-- Service Block Five -->
+            <div class="service-block-five">
+                <div class="inner-box">
+                    <div class="side-layer-one"></div>
+                    <div class="side-layer-two"></div>
+                    <div class="icon-box">
+                        <div class="border-layer"></div>
+                        <div class="dott-layer"></div>
+                        <center><span class="icon"><img src="{{ item.icon.url }}" alt=""/></span></center>
+                    </div>
+                    <h5>{{ item.name }}</h5>
+                    <div class="text">{{ item.description }}
+                    </div>
+                    <a href="/service/details/{{ item.id }}" class="learn-more">{{ service_config.learn_more_btn_txt }}</a>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+<!-- End Services Section Four -->
+
+
+<!-- Business Section -->
+<section class="business-section">
+    <div class="pattern-layer" style="background-image: url({{ why_us_config.bg_img.url }})"></div>
+    <div class="auto-container">
+        <!-- Sec Title -->
+        <div class="sec-title light">
+            <div class="title">{{ why_us_config.title }}</div>
+            <h2>{{ why_us_config.sub_title }}</h2>
+            <div class="text">{{ why_us_config.description }}
+            </div>
+        </div>
+        <a href="/contact" class="theme-btn btn-style-eight btn-why-us"><span class="txt">Lets Start</span></a>
+        <div class="inner-container">
+            <div class="row clearfix">
+
+                <!-- Image Column -->
+                <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner-column">
+                        <div class="image wow slideInUp" data-wow-delay="0ms" data-wow-duration="1500ms">
+                            <img src="{{ about.img.url }}" alt=""/>
+                        </div>
+                        <!--<div class="arrow-image wow fadeInRight" data-wow-delay="0ms" data-wow-duration="1500ms">
+                            <img src="{% static '' %}images/resource/business-arrow.png" alt=""/>
+                        </div>-->
+                    </div>
+                </div>
+
+                <!-- Content Column -->
+                <div class="content-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="inner-column">
+
+                        {% for item in why_us_config.features %}
+                        <!-- Business Block -->
+                        <div class="business-block">
+                            <div class="inner-box">
+                                <div class="box-number"
+                                     style="color:{{ item.counter_text_color }};
+                                     border-radius:{{ item.radius }}px;
+                                     border:{{ item.border_width }}px solid {{ item.counter_border_color }};
+                                     background-color: {{ item.bg_color }};"> {{ forloop.counter }}
+                                </div>
+                                <div class="icon-box">
+                                    <img src="{{ item.white_img.url }}"/>
+                                </div>
+                                <div class="content">
+                                    <h4>{{ item.title }}</h4>
+                                    <div class="text">{{ item.description }}</div>
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- End Business Section -->
+
+<!-- Counter Section Three -->
+<section class="counter-section-three">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!-- Image Column -->
+            <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <div class="image titlt" data-tilt data-tilt-max="3">
+                        <img src="{{ some_facts_config.img.url }}" alt=""/>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Counter Column -->
+            <div class="counter-column col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <div class="sec-title">
+                        <div class="title">{{ some_facts_config.title }}</div>
+                        <h2>{{ some_facts_config.sub_title }}</h2>
+                    </div>
+                    <div class="text">{{ some_facts_config.description }}
+                    </div>
+
+                    <!-- Fact Counter -->
+                    <div class="fact-counter-three">
+                        <div class="row clearfix">
+
+                            <!-- Column -->
+                            <div class="column counter-column col-lg-6 col-md-6 col-sm-12">
+                                <div class="inner wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                                    <div class="content"
+                                         style="background:url({{ some_facts_config.item_bg_img.url }}) no-repeat;">
+                                        <div class="count-outer count-box">
+                                            <span class="count-text" data-speed="2500"
+                                                  data-stop="{{ about.projects_done }}">0</span>+
+                                        </div>
+                                        <h4 class="counter-title">Projects Done</h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Column -->
+                            <div class="column counter-column col-lg-6 col-md-6 col-sm-12">
+                                <div class="inner wow fadeInLeft" data-wow-delay="300ms" data-wow-duration="1500ms">
+                                    <div class="content"
+                                         style="background:url({{ some_facts_config.item_bg_img.url }}) no-repeat;">
+                                        <div class="count-outer count-box alternate">
+                                            <span class="count-text" data-speed="2000"
+                                                  data-stop="{{ about.active_clients }}">0</span>+
+                                        </div>
+                                        <h4 class="counter-title">ACTIVE CLIENTS</h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Column -->
+                            <div class="column col-lg-offset-2 counter-column col-lg-6 col-md-6 col-sm-12">
+                                <div class="inner wow fadeInLeft" data-wow-delay="600ms" data-wow-duration="1500ms">
+                                    <div class="content"
+                                         style="background:url({{ some_facts_config.item_bg_img.url }}) no-repeat;">
+                                        <div class="count-outer count-box">
+                                            <span class="count-text" data-speed="4000"
+                                                  data-stop="{{ about.team_members }}">0</span>+
+                                        </div>
+                                        <h4 class="counter-title">TEAM ADVISORS</h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Column -->
+                            <div class="column counter-column col-lg-6 col-md-6 col-sm-12">
+                                <div class="inner wow fadeInLeft" data-wow-delay="900ms" data-wow-duration="1500ms">
+                                    <div class="content"
+                                         style="background:url({{ some_facts_config.item_bg_img.url }}) no-repeat;">
+                                        <div class="count-outer count-box">
+                                            <span class="count-text" data-speed="2000"
+                                                  data-stop="{{ about.glorious_year }}">0</span>+
+                                        </div>
+                                        <h4 class="counter-title">GLORIOUS YEARS</h4>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- End Counter Section Three -->
+
+<!-- Steps Section -->
+<section class="steps-section" style="background-image: url({{ how_we_do_it_config.bg_img.url }})">
+    <div class="auto-container">
+        <!-- Sec Title -->
+        <div class="sec-title centered  how_do_it_home_title">
+            <div class="title">{{ how_we_do_it_config.title }}</div>
+            <h2>{{ how_we_do_it_config.sub_title }}</h2>
+        </div>
+
+        <div class="row clearfix">
+            {% for item in how_we_do_it_config.how_we_do_its %}
+            <!-- Step Block -->
+            <div class="step-block how_do_it_home_block col-lg-3 col-md-6 col-sm-12">
+                <div class="inner-box wow fadeInLeft" data-wow-delay="0ms" data-wow-duration="1500ms">
+                    <div class="icon-box">
+                        <div class="number">{{ item.position }}</div>
+                    </div>
+                    <h6>{{ item.name }}</h6>
+                </div>
+            </div>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+<!-- End Steps Section -->
+
+<!-- Gallery Section -->
+<section class="gallery-section">
+    <div class="pattern-layer" style="background-image: url({{ project_config.anim_img.url }})"></div>
+    <div class="auto-container">
+        <!-- MixitUp Galery -->
+        <div class="mixitup-gallery">
+
+            <div class="sec-title">
+                <div class="clearfix">
+
+                    <div class="pull-left">
+                        <div class="title">{{ project_config.title }}</div>
+                        <h2>{{ project_config.sub_title }}</h2>
+                    </div>
+
+                    <div class="pull-right">
+                        <!--Filter-->
+                        <div class="filters clearfix">
+
+                            <ul class="filter-tabs filter-btns clearfix">
+                                <li class="active filter" data-role="button" data-filter="all">All</li>
+                                {% for item in project_categories %}
+                                <li class="filter" data-role="button" data-filter=".{{ item.id }}">{{ item.name }}</li>
+                                {% endfor %}
+                            </ul>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div class="filter-list row clearfix">
+                {% for item in projects %}
+                <!-- Gallery Block -->
+                <div class="gallery-block all mix optimization {{ item.category.id }} media col-lg-4 col-md-6 col-sm-12">
+                    <div class="inner-box">
+                        <figure class="image-box">
+                            <img src="{{ item.img.url }}" alt="">
+                            <!-- Overlay Box -->
+                            <div class="overlay-box">
+                                <div class="overlay-inner">
+                                    <div class="content">
+                                        <a href="{{ item.img.url }}" data-fancybox="gallery"
+                                           data-caption=""
+                                           class="icon flaticon-search"></a>
+                                    </div>
+                                </div>
+                            </div>
+                        </figure>
+                        <div class="lower-content">
+                            <div class="title">{{ item.category.name }}</div>
+                            <h5><a href="/project/details/{{ item.id }}">{{ item.title }}</a></h5>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+
+            <div class="btn-box text-center">
+                <a href="/project/projects" class="theme-btn btn-style-eight btn-project"><span class="txt">View More</span></a>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- End Gallery Section -->
+
+<!-- Demo Section -->
+<section class="demo-section" style="background-image: url({{ video_config.bg.url }})">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!-- Counter Column -->
+            <div class="counter-column col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <h2>{{ video_config.title }}</h2>
+                    <div class="text">{{ video_config.description }}
+                    </div>
+                    <a href="{{ video_config.video }}"
+                       class="lightbox-image theme-btn btn-style-three home-video-btn"><span class="txt">Play Video Now</span></a>
+                </div>
+            </div>
+
+            <!-- Image Column -->
+            <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <div class="image titlt" data-tilt data-tilt-max="3">
+                        <img src="{{ video_config.img.url }}" alt=""/>
+                        <a href="{{ video_config.video }}" class="lightbox-image video-box"><span
+                                class="fa fa-play"><i class="ripple"></i></span></a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- End Demo Section -->
+
+<!-- Faq's Section -->
+<section class="faq-section">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!-- Accordian Column -->
+            <div class="accordian-column col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <!-- Sec Title -->
+                    <div class="sec-title">
+                        <div class="title">{{ faq_config.title }}</div>
+                        <h2>{{ faq_config.sub_title }}</h2>
+                    </div>
+
+                    <ul class="accordion-box">
+
+                        {% for item in faqs %}
+                        <!--Block-->
+                        {% if forloop.first %}
+                        <!--Block-->
+                        <li class="accordion block active-block">
+                            <div class="acc-btn active">{{ item.question }}
+                                <div class="icon flaticon-right-arrow-1"></div>
+                            </div>
+                            <div class="acc-content current">
+                                <div class="content">
+                                    <div class="text">{{ item.answer }}
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {% else %}
+                        <!--Block-->
+                        <li class="accordion block">
+                            <div class="acc-btn">{{ item.question }}
+                                <div class="icon flaticon-right-arrow-1"></div>
+                            </div>
+                            <div class="acc-content">
+                                <div class="content">
+                                    <div class="text">{{ item.answer }}
+                                    </div>
+                                </div>
+                            </div>
+                        </li>
+                        {% endif %}
+
+                        {% endfor %}
+
+                    </ul>
+
+                </div>
+            </div>
+
+            <!-- Image Column -->
+            <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-column">
+                    <div class="image titlt" data-tilt data-tilt-max="3">
+                        <img src="{{ faq_config.img.url }}" alt=""/>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- End Faq's Section -->
+
+
+<!--  Footer Inclusion Start From Here -->
+{% include 'footer.html' %}
+<!--  Footer Inclusion Ended Here  -->
+
+{% endblock %}

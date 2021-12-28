@@ -1,0 +1,159 @@
+{% load static %}
+
+<!-- Main Header / Header Style Three -->
+<header class="main-header">
+
+    <!-- Header Upper -->
+    <div class="header-upper">
+        <div class="auto-container clearfix">
+
+            <div class="pull-left logo-box">
+                <div class="logo" style="width: 180px !important;"><a href="/"><img src="{{ company.logo.url }}" alt=""
+                                                                                    title=""></a></div>
+            </div>
+
+            <div class="nav-outer clearfix">
+                <!--Mobile Navigation Toggler-->
+                <div class="mobile-nav-toggler"><span class="icon flaticon-menu"></span></div>
+                <!-- Main Menu -->
+                <nav class="main-menu navbar-expand-md">
+                    <div class="navbar-header">
+                        <!-- Toggle Button -->
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                                aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                    </div>
+
+                    <div class="navbar-collapse collapse clearfix" id="navbarSupportedContent">
+                        <ul class="navigation clearfix">
+                            <li><a href="/">Home</a></li>
+                            <li><a href="/about">About</a></li>
+                            <li><a href="/service/services">Services</a></li>
+                            <li><a href="/project/projects">Projects</a></li>
+                            <li><a href="/blog/blogs">Blog</a></li>
+                            <li><a href="/contact">Contact us</a></li>
+                        </ul>
+                    </div>
+                </nav>
+
+                <!-- Main Menu End-->
+                <div class="outer-box clearfix">
+                    <!-- Quote Btn -->
+                    <div class="btn-box">
+                        <a href="/contact" class="theme-btn btn-style-one quote-btn-one"><span class="txt">Get A Quote</span></a>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <!--End Header Upper-->
+
+    <!-- Sticky Header  -->
+    <div class="sticky-header">
+        <div class="auto-container clearfix">
+            <!--Logo-->
+            <div class="logo pull-left" style="width: 180px !important;">
+                <a href="/" title=""><img src="{{ company.logo.url }}" alt="" title=""></a>
+            </div>
+            <!--Right Col-->
+            <div class="pull-right">
+                <!-- Main Menu -->
+                <nav class="main-menu">
+                    <!--Keep This Empty / Menu will come through Javascript-->
+                </nav><!-- Main Menu End-->
+
+                <!-- Main Menu End-->
+                <div class="outer-box clearfix">
+
+                    <!-- Quote Btn -->
+                    <div class="btn-box">
+                        <a href="/contact" class="theme-btn btn-style-two quote-btn-two"><span class="txt">Get A Quote</span></a>
+                    </div>
+
+                    <!-- Nav Btn -->
+<!--                    <div class="nav-btn navSidebar-button"><span class="icon flaticon-menu"></span></div>-->
+
+                </div>
+
+            </div>
+        </div>
+    </div><!-- End Sticky Menu -->
+
+    <!-- Mobile Menu  -->
+    <div class="mobile-menu">
+        <div class="menu-backdrop"></div>
+        <div class="close-btn"><span class="icon flaticon-multiply"></span></div>
+
+        <nav class="menu-box">
+            <div class="nav-logo"><a href="index.html"><img src="{% static '' %}images/logo-3.png" alt="" title=""></a>
+            </div>
+            <div class="menu-outer">
+                <!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
+        </nav>
+    </div><!-- End Mobile Menu -->
+
+</header>
+<!-- End Main Header -->
+
+<!-- Sidebar Cart Item -->
+<div class="xs-sidebar-group info-group">
+    <div class="xs-overlay xs-bg-black"></div>
+    <div class="xs-sidebar-widget">
+        <div class="sidebar-widget-container">
+            <div class="widget-heading">
+                <a href="#" class="close-side-widget">
+                    X
+                </a>
+            </div>
+            <div class="sidebar-textwidget">
+
+                <!-- Sidebar Info Content -->
+                <div class="sidebar-info-contents">
+                    <div class="content-inner">
+                        <div class="logo">
+                            <a href="index.html"><img src="{% static '' %}images/logo.png" alt=""/></a>
+                        </div>
+                        <div class="content-box">
+                            <h2>About Us</h2>
+                            <p class="text">Over the years, we have worked with Fortune 500s and brand-new startups.
+                                We help ambitious businesses like yours generate more profits by building awareness,
+                                driving web traffic, connecting with customers, and growing overall sales. Give us a
+                                call.</p>
+                            <a href="contact.html" class="theme-btn btn-style-two"><span
+                                    class="txt">Contact Now</span></a>
+                        </div>
+                        <div class="contact-info">
+                            <h2>Contact Info</h2>
+                            <ul class="list-style-one">
+                                <li><span class="icon fa fa-location-arrow"></span>New York 24, Melborne City, USA
+                                </li>
+                                <li><span class="icon fa fa-phone"></span><a href="tel:+000-000-000-0000">(000)
+                                    000-000-0000</a></li>
+                                <li><span class="icon fa fa-envelope"></span><a href="mailto:Merix@gmail.com">Merix@gmail.com</a>
+                                </li>
+                                <li><span class="icon fa fa-clock-o"></span>Week Days: 09.00 to 18.00 Sunday: Closed
+                                </li>
+                            </ul>
+                        </div>
+                        <!-- Social Box -->
+                        <ul class="social-box">
+                            <li class="facebook"><a href="#" class="fa fa-facebook-f"></a></li>
+                            <li class="twitter"><a href="#" class="fa fa-twitter"></a></li>
+                            <li class="linkedin"><a href="#" class="fa fa-linkedin"></a></li>
+                            <li class="instagram"><a href="#" class="fa fa-instagram"></a></li>
+                            <li class="youtube"><a href="#" class="fa fa-youtube"></a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+<!-- END sidebar widget item -->

@@ -1,0 +1,129 @@
+{% extends 'base.html' %}
+{% load mytemplatetags %}
+{% load static %}
+{% block body %}
+
+<!--  Header Inclusion Start From Here -->
+{% include 'header.html' %}
+<!--  Header Inclusion Ended Here  -->
+
+<!-- Page Title Section -->
+<section class="page-title" style="background-image: url({{ page_banner.project_img.url }})">
+    <div class="pattern-layer-one" style="background-image: url({% static '' %}images/main-slider/pattern-1.png)"></div>
+    <div class="pattern-layer-two" style="background-image: url({% static '' %}images/background/pattern-17.png)"></div>
+    <div class="pattern-layer-three"
+         style="background-image: url({% static '' %}images/background/pattern-18.png)"></div>
+    <div class="pattern-layer-four" style="background-image: url({% static '' %}images/icons/cross-icon.png)"></div>
+    <div class="auto-container">
+        <h2>Projects Left Sidebar</h2>
+        <ul class="page-breadcrumb">
+            <li><a href="index.html">home</a></li>
+            <li>Projects</li>
+        </ul>
+    </div>
+</section>
+<!-- End Page Title Section -->
+
+<!-- Sidebar Page Container -->
+<div class="sidebar-page-container">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!-- Sidebar Side -->
+            <div class="sidebar-side left-sidebar col-lg-4 col-md-12 col-sm-12">
+                <aside class="sidebar sticky-top">
+
+                    <!-- Search -->
+                    <div class="sidebar-widget search-box">
+                        <form action="">
+                            <div class="form-group">
+                                <input type="text" name="search" value="" placeholder="Search Here"
+                                       required>
+                                <button type="submit"><span class="icon fa fa-search"></span></button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <!-- Categories Widget -->
+                    <div class="sidebar-widget categories-widget">
+                        <div class="sidebar-title">
+                            <h4>Categories</h4>
+                        </div>
+                        <div class="widget-content">
+                            <ul class="blog-cat">
+                                {% for item in categories %}
+                                <li><a href="/project/projects/?{% url_replace request 'category' item.category.id %}">
+                                    {{ item.category.name }} <span>( {{ item.dcount }} )</span></a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Categories Widget -->
+                    <div class="sidebar-widget popular-posts">
+                        <div class="sidebar-title">
+                            <h4>Recent Post</h4>
+                        </div>
+                        <div class="widget-content">
+                            {% for item in recent_blogs %}
+                            <article class="post">
+                                <figure class="post-thumb"><img src="{{ item.img.url }}"
+                                                                alt=""><a
+                                        href="/blog/details/{{ item.id }}" class="overlay-box"><span
+                                        class="icon fa fa-link"></span></a></figure>
+                                <div class="text"><a href="/blog/details/{{ item.id }}">{{ item.title }}</a></div>
+                                <div class="post-info">{{ item.create_date }}</div>
+                            </article>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                </aside>
+            </div>
+
+            <!-- Content Side -->
+            <div class="content-side right-sidebar col-lg-8 col-md-12 col-sm-12">
+
+                <div class="row clearfix">
+
+                    {% for item in projects %}
+                    <!-- Gallery Block -->
+                    <div class="gallery-block col-lg-6 col-md-6 col-sm-12">
+                        <div class="inner-box">
+                            <figure class="image-box">
+                                <img src="{{ item.img.url }}" alt="">
+                                <!-- Overlay Box -->
+                                <div class="overlay-box">
+                                    <div class="overlay-inner">
+                                        <div class="content">
+                                            <a href="{{ item.img.url }}" data-fancybox="gallery"
+                                               data-caption=""
+                                               class="icon flaticon-plus"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </figure>
+                            <div class="lower-content">
+                                <div class="title">{{ item.category.name }}</div>
+                                <h5><a href="/project/details/{{ item.id }}">{{ item.title }}</a></h5>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--  Footer Inclusion Start From Here -->
+{% include 'footer.html' %}
+<!--  Footer Inclusion Ended Here  -->
+
+
+{% endblock %}

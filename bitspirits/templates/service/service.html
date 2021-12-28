@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block body %}
+
+
+<!--  Header Inclusion Start From Here -->
+{% include 'header.html' %}
+<!--  Header Inclusion Ended Here  -->
+<!-- Page Title Section -->
+<section class="page-title" style="background-image: url({{ page_banner.service_img.url }})">
+    <div class="pattern-layer-one" style="background-image: url({% static '' %}images/main-slider/pattern-1.png)"></div>
+    <div class="pattern-layer-two" style="background-image: url({% static '' %}images/background/pattern-17.png)"></div>
+    <div class="pattern-layer-three"
+         style="background-image: url({% static '' %}images/background/pattern-18.png)"></div>
+    <div class="pattern-layer-four" style="background-image: url({% static '' %}images/icons/cross-icon.png)"></div>
+    <div class="auto-container">
+        <h2>Service Details</h2>
+        <ul class="page-breadcrumb">
+            <li><a href="/">home</a></li>
+            <li>{{ service.name }}</li>
+        </ul>
+    </div>
+</section>
+<!-- End Page Title Section -->
+
+<!-- Sidebar Page Container -->
+<div class="sidebar-page-container">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!-- Sidebar Side -->
+            <div class="sidebar-side left-sidebar col-lg-4 col-md-12 col-sm-12">
+                <aside class="sidebar sticky-top">
+
+                    <!-- Services -->
+                    <div class="sidebar-widget">
+                        <ul class="service-list">
+                            {% for item in services %}
+                            <li><a href="/service/details/{{ item.id }}"><span class="color-layer"></span>
+                                {{ item.name }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+
+                    <!-- Broucher Widget -->
+                    <!--<div class="broucher-widget">
+                        <div class="widget-content"
+                             style="background-image: url({% static '' %}images/background/pattern-19.jpg)">
+                            <h3>Download <br> Our Brochures</h3>
+                            <div class="icon flaticon-pdf-1"></div>
+                            <div class="text">Business is a marketing discipline focused on growing visibility in
+                                organic (non-paid) technic required.
+                            </div>
+                            <a href="#" class="download">Click here to download</a>
+                        </div>
+                    </div>-->
+
+                    <!-- Help Widget -->
+                    <div class="help-widget">
+                        <div class="widget-content">
+                            <h4>Need Help ?</h4>
+                            <div class="text">{{ company.about }}
+                            </div>
+                            <ul class="help-list">
+                                <li><a href=""><span class="icon fa fa-phone"></span>{{ company.mobile }}</a>
+                                </li>
+                                <li><a href=""><span class="icon fa fa-envelope-o"></span>
+                                    {{ company.email }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                </aside>
+            </div>
+
+            <!-- Content Side -->
+            <div class="content-side right-sidebar col-lg-8 col-md-12 col-sm-12">
+                <div class="service-detail">
+                    <div class="inner-box">
+                        <div class="image">
+                            <img src="{{ service.thumbnail.url }}" alt=""/>
+                        </div>
+                        <div class="lower-content">
+                            <h3>{{ service.name }}</h3>
+                            <p>{{ service.description }}</p>
+
+                            {% for item in service.parameters %}
+
+
+                            {% if item.img.url != null and item.img.url != blank %}
+                            {% if forloop.counter|divisibleby:2 %}
+                            <div class="two-columns">
+                                <div class="row clearfix">
+                                    <div class="column col-lg-6 col-md-6 col-sm-12">
+                                        {% if item.title != null and item.title != blank %}
+                                        <h4>{{ item.title }}</h4>
+                                        {% endif %}
+                                        <p>{{ item.description }}</p>
+                                    </div>
+                                    <div class="column col-lg-6 col-md-6 col-sm-12">
+                                        <div class="image">
+                                            <img src="{{ item.img.url }}" alt=""/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            {% else %}
+                            <div class="two-columns">
+                                <div class="row clearfix">
+                                    <div class="column col-lg-6 col-md-6 col-sm-12">
+                                        <div class="image">
+                                            <img src="{{ item.img.url }}" alt=""/>
+                                        </div>
+                                    </div>
+                                    <div class="column col-lg-6 col-md-6 col-sm-12">
+                                        {% if item.title != null and item.title != blank %}
+                                        <h4>{{ item.title }}</h4>
+                                        {% endif %}
+                                        <p>{{ item.description }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% else %}
+                            {% if item.title != null and item.title != blank %}
+                            <h4>{{ item.title }}</h4>
+                            {% endif %}
+                            <p>{{ item.description }}</p>
+                            {% endif %}
+
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End Sidebar Page Container -->
+
+<!--  Footer Inclusion Start From Here -->
+{% include 'footer.html' %}
+<!--  Footer Inclusion Ended Here  -->
+
+
+{% endblock %}

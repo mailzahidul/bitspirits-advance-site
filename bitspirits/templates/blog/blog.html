@@ -1,0 +1,148 @@
+{% extends 'base.html' %}
+{% load mytemplatetags %}
+{% load static %}
+{% block body %}
+
+
+<!--  Header Inclusion Start From Here -->
+{% include 'header.html' %}
+<!--  Header Inclusion Ended Here  -->
+
+<!-- Page Title Section -->
+<section class="page-title" style="background-image: url({{ page_banner.blog_img.url }})">
+    <div class="pattern-layer-one" style="background-image: url({% static '' %}images/main-slider/pattern-1.png)"></div>
+    <div class="pattern-layer-two" style="background-image: url({% static '' %}images/background/pattern-17.png)"></div>
+    <div class="pattern-layer-three"
+         style="background-image: url({% static '' %}images/background/pattern-18.png)"></div>
+    <div class="pattern-layer-four" style="background-image: url({% static '' %}images/icons/cross-icon.png)"></div>
+    <div class="auto-container">
+        <h2>Blog Detail</h2>
+        <ul class="page-breadcrumb">
+            <li><a href="/">home</a></li>
+            <li>Blog Detail</li>
+        </ul>
+    </div>
+</section>
+<!-- End Page Title Section -->
+
+<!-- Sidebar Page Container -->
+<div class="sidebar-page-container">
+    <div class="auto-container">
+        <div class="row clearfix">
+
+            <!-- Content Side -->
+            <div class="content-side col-lg-8 col-md-12 col-sm-12">
+                <!-- News Detail -->
+                <div class="news-detail">
+                    <div class="inner-box">
+                        <div class="image">
+                            <img src="{{ blog.img.url }}" alt=""/>
+                        </div>
+                        <div class="lower-content">
+                            <ul class="post-meta">
+                                <!--                                <li><span class="icon fa fa-user"></span> Pablo Villalpando</li>-->
+                                <li><span class="icon fa fa-calendar"></span> {{ blog.create_date }}</li>
+                            </ul>
+                            <h2>{{ blog.title }}</h2>
+                            <!--<div class="row clearfix">
+                                <div class="column col-lg-6 col-md-6 col-sm-12">
+                                    <div class="image">
+                                        <img src="{% static '' %}images/resource/news-12.jpg" alt=""/>
+                                    </div>
+                                </div>
+                                <div class="column col-lg-6 col-md-6 col-sm-12">
+                                    <div class="image">
+                                        <img src="{% static '' %}images/resource/news-13.jpg" alt=""/>
+                                    </div>
+                                </div>
+                            </div>-->
+                            {% for item in blog.parameters %}
+
+                            {% if item.title != null and item.title != blank %}
+                            <h3>{{ item.title }}</h3>
+                            {% endif %}
+
+                            <p>{{ item.description }}</p>
+
+                            {% if item.quotes_title != null and item.quotes_title != blank %}
+                            <blockquote>
+                                “{{ item.quotes_title }}”
+                                <span class="author-name">{{ item.quotes_auth }}</span>
+                            </blockquote>
+                            {% endif %}
+
+                            {% endfor %}
+                            <!-- Post Share Options-->
+                            <!--<div class="post-share-options">
+                                <div class="post-share-inner clearfix">
+                                    <ul class="social-box pull-right">
+                                        <li class="facebook"><a href="#"><span class="fa fa-facebook-f"></span></a>
+                                        </li>
+                                        <li class="twitter"><a href="#"><span class="fa fa-twitter"></span></a></li>
+                                        <li class="linkedin"><a href="#"><span class="fa fa-google-plus"></span></a>
+                                        </li>
+                                        <li class="pinterest"><a href="#"><span
+                                                class="fa fa-pinterest-p"></span></a></li>
+                                    </ul>
+                                </div>
+                            </div>-->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Sidebar Side -->
+            <div class="sidebar-side col-lg-4 col-md-12 col-sm-12">
+                <aside class="sidebar sticky-top">
+
+                    <!-- Categories Widget -->
+                    <div class="sidebar-widget categories-widget">
+                        <div class="sidebar-title">
+                            <h4>Categories</h4>
+                        </div>
+                        <div class="widget-content">
+                            <ul class="blog-cat">
+                                {% for item in categories %}
+                                <li><a href="/blog/blogs/?{% url_replace request 'category' item.category.id %}">
+                                    {{ item.category.name }} <span>( {{ item.dcount }} )</span></a>
+                                </li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- Categories Widget -->
+                    <div class="sidebar-widget popular-posts">
+                        <div class="sidebar-title">
+                            <h4>Recent Post</h4>
+                        </div>
+                        <div class="widget-content">
+                            {% for item in recent_blogs %}
+                            <article class="post">
+                                <figure class="post-thumb"><img src="{{ item.img.url }}"
+                                                                alt=""><a
+                                        href="/blog/details/{{ item.id }}" class="overlay-box"><span
+                                        class="icon fa fa-link"></span></a></figure>
+                                <div class="text"><a href="/blog/details/{{ item.id }}">{{ item.title }}</a></div>
+                                <div class="post-info">{{ item.create_date }}</div>
+                            </article>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+
+                </aside>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+
+<!--  Footer Inclusion Start From Here -->
+{% include 'footer.html' %}
+<!--  Footer Inclusion Ended Here  -->
+
+
+{% endblock %}

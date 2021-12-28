@@ -1,0 +1,154 @@
+{% load static %}
+<!-- Main Footer -->
+<footer class="main-footer style-two">
+    <div class="pattern-layer" style="background-image: url({% static '' %}images/background/pattern-3.png)"></div>
+    <div class="pattern-layer-two" style="background-image: url({% static '' %}images/background/pattern-4.png)"></div>
+    <div class="pattern-layer-three"
+         style="background-image: url({% static '' %}images/background/pattern-5.png)"></div>
+    <div class="auto-container">
+        <!--Widgets Section-->
+        <div class="widgets-section">
+            <div class="row clearfix">
+
+                <!-- Column -->
+                <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="row clearfix">
+
+                        <!-- Footer Column -->
+                        <div class="footer-column col-lg-7 col-md-6 col-sm-12">
+                            <div class="footer-widget logo-widget">
+                                <div class="logo">
+                                    <a href="/"><img src="{{ company.footer_logo.url }}" alt=""/></a>
+                                </div>
+                                <div class="text">{{ company.about }}
+                                </div>
+                                <!-- Social Box -->
+                                <ul class="social-box">
+                                    {% if company.facebook != null and company.facebook != blank %}
+                                    <li><a target="_blank" href="{{ company.facebook }}" class="fa fa-facebook-f"></a>
+                                    </li>
+                                    {% endif %}
+                                    {% if company.twitter != null and company.twitter != blank %}
+                                    <li><a target="_blank" href="{{ company.twitter }}" class="fa fa-twitter"></a></li>
+                                    {% endif %}
+                                    {% if company.youtube != null and company.youtube != blank %}
+                                    <li><a target="_blank" href="{{ company.youtube }}" class="fa fa-youtube-play"></a>
+                                    </li>
+                                    {% endif %}
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Footer Column -->
+                        <div class="footer-column col-lg-5 col-md-6 col-sm-12">
+<!--
+                            <div class="footer-widget links-widget">
+                                <h4>Services</h4>
+                                <ul class="list-link">
+                                    <li><a href="#">SEO for Small Business</a></li>
+                                    <li><a href="#">SEO for Local Services</a></li>
+                                    <li><a href="#">Enterprise SEO</a></li>
+                                    <li><a href="#">National SEO</a></li>
+                                    <li><a href="#">International SEO</a></li>
+                                </ul>
+                            </div>
+-->
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Column -->
+                <div class="big-column col-lg-6 col-md-12 col-sm-12">
+                    <div class="row clearfix">
+
+                        <!--Footer Column-->
+                        <div class="footer-column col-lg-6 col-md-6 col-sm-12">
+                           <!-- <div class="footer-widget gallery-widget">
+                                <h4>Blog</h4>
+                                <div class="widget-content">
+                                    <div class="images-outer clearfix">
+                                        &lt;!&ndash;Image Box&ndash;&gt;
+                                        <figure class="image-box"><a href="{% static '' %}images/gallery/1.jpg"
+                                                                     class="lightbox-image"
+                                                                     data-fancybox="footer-gallery"
+                                                                     title="Image Title Here"
+                                                                     data-fancybox-group="footer-gallery"><img
+                                                src="{% static '' %}images/gallery/footer-gallery-thumb-1.jpg"
+                                                alt=""></a></figure>
+                                        &lt;!&ndash;Image Box&ndash;&gt;
+                                        <figure class="image-box"><a href="{% static '' %}images/gallery/2.jpg"
+                                                                     class="lightbox-image"
+                                                                     data-fancybox="footer-gallery"
+                                                                     title="Image Title Here"
+                                                                     data-fancybox-group="footer-gallery"><img
+                                                src="{% static '' %}images/gallery/footer-gallery-thumb-2.jpg"
+                                                alt=""></a></figure>
+                                        &lt;!&ndash;Image Box&ndash;&gt;
+                                        <figure class="image-box"><a href="{% static '' %}images/gallery/3.jpg"
+                                                                     class="lightbox-image"
+                                                                     data-fancybox="footer-gallery"
+                                                                     title="Image Title Here"
+                                                                     data-fancybox-group="footer-gallery"><img
+                                                src="{% static '' %}images/gallery/footer-gallery-thumb-3.jpg"
+                                                alt=""></a></figure>
+                                        &lt;!&ndash;Image Box&ndash;&gt;
+                                        <figure class="image-box"><a href="{% static '' %}images/gallery/4.jpg"
+                                                                     class="lightbox-image"
+                                                                     data-fancybox="footer-gallery"
+                                                                     title="Image Title Here"
+                                                                     data-fancybox-group="footer-gallery"><img
+                                                src="{% static '' %}images/gallery/footer-gallery-thumb-4.jpg"
+                                                alt=""></a></figure>
+                                        &lt;!&ndash;Image Box&ndash;&gt;
+                                        <figure class="image-box"><a href="{% static '' %}images/gallery/1.jpg"
+                                                                     class="lightbox-image"
+                                                                     data-fancybox="footer-gallery"
+                                                                     title="Image Title Here"
+                                                                     data-fancybox-group="footer-gallery"><img
+                                                src="{% static '' %}images/gallery/footer-gallery-thumb-5.jpg"
+                                                alt=""></a></figure>
+                                        &lt;!&ndash;Image Box&ndash;&gt;
+                                        <figure class="image-box"><a href="{% static '' %}images/gallery/2.jpg"
+                                                                     class="lightbox-image"
+                                                                     data-fancybox="footer-gallery"
+                                                                     title="Image Title Here"
+                                                                     data-fancybox-group="footer-gallery"><img
+                                                src="{% static '' %}images/gallery/footer-gallery-thumb-6.jpg"
+                                                alt=""></a></figure>
+                                    </div>
+                                </div>
+                            </div>-->
+                        </div>
+
+                        <!-- Footer Column -->
+                        <div class="footer-column col-lg-5 col-md-6 col-sm-12">
+                            <div class="footer-widget links-widget">
+                                <h4>Contact info</h4>
+                                <ul class="list-style-two">
+                                    <li><span class="icon flaticon-phone-call"></span><a>{{ company.mobile}}</a></li>
+                                    <li><span class="icon flaticon-email"></span><a>
+                                        {{ company.email }}</a>
+                                    </li>
+                                    <li><span class="icon flaticon-maps-and-flags"></span>{{ company.address }}
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Footer Bottom -->
+        <div class="footer-bottom">
+            <div class="copyright">Copyright © 2019 RAVASWEB by <a target="_blank" href="https://www.bitspirits.io">BitSpirits</a>.
+                All Rights Reserved. All Rights Reserved.
+            </div>
+        </div>
+
+    </div>
+</footer>
+<!-- End Main Footer -->

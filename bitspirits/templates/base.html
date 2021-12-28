@@ -1,0 +1,441 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+
+<!-- Mirrored from themerange.net/html/merix/merix/index-6.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 01 Nov 2021 08:58:36 GMT -->
+<head>
+    <meta charset="utf-8">
+    <title>{{ company.title }}</title>
+    <!-- Stylesheets -->
+    <link href="{% static '' %}css/bootstrap.css" rel="stylesheet">
+    <link href="{% static '' %}css/style.css" rel="stylesheet">
+    <link href="{% static '' %}css/responsive.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700&amp;family=Poppins:wght@300;400;500;600;700;800;900&amp;display=swap"
+          rel="stylesheet">
+
+    <!-- Color Switcher Mockup -->
+    <link href="{% static '' %}css/color-switcher-design.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="{% static '' %}images/favicon.png" type="image/x-icon">
+    <link rel="icon" href="{% static '' %}images/favicon.png" type="image/x-icon">
+
+    <!-- Responsive -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+    <!--[if lt IE 9]>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv.js"></script><![endif]-->
+    <!--[if lt IE 9]>
+    <script src="{% static '' %}js/respond.js"></script><![endif]-->
+
+    <style>
+
+    .btn-style-three{
+	background: -webkit-linear-gradient(to right, {{ home_slider_config.bg_btn_start_color }} 0%, {{ home_slider_config.bg_btn_end_color }} 100%);
+    background: -moz-linear-gradient(to right, {{ home_slider_config.bg_btn_start_color }} 0%, {{ home_slider_config.bg_btn_end_color }} 100%);
+    background: linear-gradient(to right, {{ home_slider_config.bg_btn_start_color }} 0%, {{ home_slider_config.bg_btn_end_color }} 100%);
+                               }
+
+    .btn-style-three:before{
+	background: -webkit-linear-gradient(to left, {{ home_slider_config.bg_btn_hov_start_color }} 0%, {{ home_slider_config.bg_btn_hov_end_color }} 100%);
+	background: -moz-linear-gradient(to left, {{ home_slider_config.bg_btn_hov_start_color }} 0%, {{ home_slider_config.bg_btn_hov_end_color }} 100%);
+	background: linear-gradient(to left, {{ home_slider_config.bg_btn_hov_start_color }} 0%, {{ home_slider_config.bg_btn_hov_end_color }} 100%);
+    }
+
+    .home-slider-btn{
+	background: -webkit-linear-gradient(to right, {{ home_slider_config.bg_btn_start_color }} 0%, {{ home_slider_config.bg_btn_end_color }} 100%);
+    background: -moz-linear-gradient(to right, {{ home_slider_config.bg_btn_start_color }} 0%, {{ home_slider_config.bg_btn_end_color }} 100%);
+    background: linear-gradient(to right, {{ home_slider_config.bg_btn_start_color }} 0%, {{ home_slider_config.bg_btn_end_color }} 100%);
+                               }
+
+    .home-slider-btn:before{
+	background: -webkit-linear-gradient(to left, {{ home_slider_config.bg_btn_hov_start_color }} 0%, {{ home_slider_config.bg_btn_hov_end_color }} 100%);
+	background: -moz-linear-gradient(to left, {{ home_slider_config.bg_btn_hov_start_color }} 0%, {{ home_slider_config.bg_btn_hov_end_color }} 100%);
+	background: linear-gradient(to left, {{ home_slider_config.bg_btn_hov_start_color }} 0%, {{ home_slider_config.bg_btn_hov_end_color }} 100%);
+    }
+
+    .btn-why-us{
+	    background: -webkit-linear-gradient(to right, {{ why_us_config.bg_btn_start_color }} 0%, {{ why_us_config.bg_btn_end_color }} 100%);
+	    background: -moz-linear-gradient(to right, {{ why_us_config.bg_btn_start_color }} 0%, {{ why_us_config.bg_btn_end_color }} 100%);
+	    background: linear-gradient(to right, {{ why_us_config.bg_btn_start_color }} 0%, {{ why_us_config.bg_btn_end_color }} 100%);
+    }
+
+    .btn-why-us:before{
+	    background: -webkit-linear-gradient(to left, {{ why_us_config.bg_btn_hov_start_color }} 0%, {{ why_us_config.bg_btn_hov_end_color }} 100%);
+	    background: -moz-linear-gradient(to left, {{ why_us_config.bg_btn_hov_start_color }} 0%, {{ why_us_config.bg_btn_hov_end_color }} 100%);
+	    background: linear-gradient(to left, {{ why_us_config.bg_btn_hov_start_color }} 0%, {{ why_us_config.bg_btn_hov_end_color }} 100%);
+    }
+
+    .business-section{
+        background: -webkit-linear-gradient(to right, {{ why_us_config.bg_start_color }} 0%, {{ why_us_config.bg_end_color }} 100%);
+        background: -moz-linear-gradient(to right, {{ why_us_config.bg_start_color }} 0%, {{ why_us_config.bg_end_color }} 100%);
+	    background: linear-gradient(to right, {{ why_us_config.bg_start_color }} 0%, {{ why_us_config.bg_end_color }} 100%);
+    }
+
+    .banner-section-three .content-column .video-box .fa-play{
+	    background-color:{{ home_slider_config.bg_play_btn_color }};
+	    color:{{ home_slider_config.triangle_play_btn_color }};
+	    border:10px solid {{ home_slider_config.border_play_btn_color }};
+    }
+    .banner-section-three .content-column .video-box .fa-play .ripple,
+    .banner-section-three .content-column .video-box .fa-play .ripple:before,
+    .banner-section-three .content-column .video-box .fa-play .ripple:after {
+        -webkit-box-shadow: 0 0 0 0 {{ home_slider_config.border_play_btn_color }};
+        -moz-box-shadow: 0 0 0 0 {{ home_slider_config.border_play_btn_color }};
+        -ms-box-shadow: 0 0 0 0 {{ home_slider_config.border_play_btn_color }};
+        -o-box-shadow: 0 0 0 0 {{ home_slider_config.border_play_btn_color }};
+        box-shadow: 0 0 0 0 {{ home_slider_config.border_play_btn_color }};
+    }
+
+    .banner-section-three .social-box li a:hover{
+	    background-color:{{ home_slider_config.social_box_color }};
+    }
+
+    .step-block:nth-child(1) .inner-box .icon-box:before{
+	    background:url({{ how_we_do_it_config.step_block_1_img.url }}) no-repeat;
+    }
+    .step-block:nth-child(2) .inner-box .icon-box:before{
+	    background:url({{ how_we_do_it_config.step_block_2_img.url }}) no-repeat;
+    }
+    .step-block:nth-child(3) .inner-box .icon-box:before{
+	    background:url({{ how_we_do_it_config.step_block_3_img.url }}) no-repeat;
+    }
+    .step-block:nth-child(4) .inner-box .icon-box:before{
+	    background:url({{ how_we_do_it_config.step_block_4_img.url }}) no-repeat;
+    }
+
+
+    .steps-section .step-block:nth-child(1) .inner-box:before{
+	    background:url({{ how_we_do_it_config.steps_section_1_img.url }}) no-repeat;
+    }
+    .steps-section .step-block:nth-child(2) .inner-box:before{
+	    background:url({{ how_we_do_it_config.steps_section_2_img.url }}) no-repeat;
+    }
+    .steps-section .step-block:nth-child(3) .inner-box:before{
+	    background:url({{ how_we_do_it_config.steps_section_3_img.url }}) no-repeat;
+    }
+
+    .how_do_it_home_title .title{
+	    color:{{ how_we_do_it_config.title_text_color }};
+    }
+
+    .how_do_it_home_title h2{
+	    color:{{ how_we_do_it_config.sub_title_text_color }};
+    }
+
+    .how_do_it_home_block .inner-box h6{
+	    color:{{ how_we_do_it_config.item_text_color }};
+    }
+
+    .how_do_it_home_block .inner-box .icon-box .number{
+	    color:{{ how_we_do_it_config.item_icon_text_color }};
+    }
+    .accordion-box .block .icon{
+	    color: {{ faq_config.icon_color }};
+    }
+    .accordion-box .block .acc-btn.active .icon{
+	    color:  {{ faq_config.icon_active_color }} !important;
+    }
+    .accordion-box .block .acc-btn.active{
+	    color: {{ faq_config.title_active_color }};
+    }
+    .gallery-block .inner-box .image-box .overlay-box{
+	    background-color: {{ project_config.bg_hover_box_color }};
+	    opacity:  {{ project_config.hover_box_opacity }}%;
+    }
+    .gallery-block .inner-box .image-box .overlay-box .icon{
+	    color: {{ project_config.icon_color }};
+	    background-color: {{ project_config.bg_icon_color }};
+    }
+
+    .gallery-block .inner-box .image-box .overlay-box .icon:hover{
+	    background-color: {{ project_config.bg_icon_hover_color }};
+	    color: {{ project_config.icon_hover_color }};
+    }
+
+    .btn-project{
+        background:{{ project_config.bg_btn_color }} !important;
+    }
+
+    .btn-project::before{
+        background:{{ project_config.bg_btn_hover_color }} !important;
+    }
+    .gallery-section .filters .filter.active,
+    .gallery-section .filters .filter:hover{
+        color:{{ project_config.bg_btn_filter_active_hover_color }};
+	    background-color:{{ project_config.btn_filter_active_hover_txt_color }};
+    }
+    .gallery-section .filters li{
+        color: {{ project_config.filter_txt_color }};
+    }
+    .home-video-btn{
+	background: -webkit-linear-gradient(to right, {{ video_config.bg_btn_start_color }} 0%, {{ video_config.bg_btn_end_color }} 100%);
+    background: -moz-linear-gradient(to right, {{ video_config.bg_btn_start_color }} 0%, {{ video_config.bg_btn_end_color }} 100%);
+    background: linear-gradient(to right, {{ video_config.bg_btn_start_color }} 0%, {{ video_config.bg_btn_end_color }} 100%);
+    color:{{ video_config.btn_txt_color }} !important;
+                               }
+
+    .home-video-btn:before{
+	background: -webkit-linear-gradient(to left, {{ video_config.bg_btn_hov_start_color }} 0%, {{ video_config.bg_btn_hov_end_color }} 100%);
+	background: -moz-linear-gradient(to left, {{ video_config.bg_btn_hov_start_color }} 0%, {{ video_config.bg_btn_hov_end_color }} 100%);
+	background: linear-gradient(to left, {{ video_config.bg_btn_hov_start_color }} 0%, {{ video_config.bg_btn_hov_end_color }} 100%);
+	color:{{ video_config.btn_txt_color }} !important;
+    }
+    .demo-section .image-column .video-box{
+	    color:{{ video_config.triangle_play_btn_color }};
+	    border:{{ video_config.border_width }}px solid {{ video_config.border_play_btn_color }};
+    }
+    .demo-section .image-column .video-box .ripple,
+    .demo-section .image-column .video-box .ripple:before,
+    .demo-section .image-column .video-box .ripple:after {
+        -webkit-box-shadow: 0 0 0 0 {{ video_config.border_play_btn_color }};
+        -moz-box-shadow: 0 0 0 0 {{ video_config.border_play_btn_color }};
+        -ms-box-shadow: 0 0 0 0 {{ video_config.border_play_btn_color }};
+        -o-box-shadow: 0 0 0 0 {{ video_config.border_play_btn_color }};
+        box-shadow: 0 0 0 0 {{ video_config.border_play_btn_color }};
+    }
+
+
+    .back-to-top {
+        background-color: {{ page_setup.back_to_top_color }};
+    }
+    .back-to-top::before{
+        border-bottom: 20px solid {{ page_setup.back_to_top_before_color }};
+    }
+    .back-to-top::after {
+        border-bottom: 20px solid {{ page_setup.back_to_top_after_color }};
+    }
+    .back-to-top:hover
+    {
+        color: {{ page_setup.back_to_top_txt_color }};
+    }
+    .back-to-top:focus {
+        color: {{ page_setup.back_to_top_txt_color }};
+    }
+
+<!--about-->
+.testimonial-block-two .inner-box .author-image-outer .clint-name{
+	color:{{ testimonial_config.designation_txt_color }};
+}
+.testimonial-block-two .inner-box .author-image-outer .designation{
+	color:{{ testimonial_config.designation_txt_color }};
+}
+.testimonial-block-two .inner-box .text{
+	color:{{ testimonial_config.description_txt_color }};
+}
+.testimonial-block-two .inner-box{
+	background-color:{{ testimonial_config.bg_item_color }};
+}
+.testimonial-block-two .inner-box:before{
+	background: -webkit-linear-gradient(to right, {{ testimonial_config.bg_bottom_line_start_color }} 0%, {{ testimonial_config.bg_bottom_line_end_color }} 100%);
+	background: -moz-linear-gradient(to right, {{ testimonial_config.bg_bottom_line_start_color }} 0%, {{ testimonial_config.bg_bottom_line_end_color }} 100%);
+	background: linear-gradient(to right, {{ testimonial_config.bg_bottom_line_start_color }} 0%, {{ testimonial_config.bg_bottom_line_end_color }} 100%);
+}
+
+
+
+
+
+
+
+
+.service-block-four .inner-box{
+	background: -webkit-linear-gradient(to bottom, {{ service_config.bg_item_start_color }} 0%, {{ service_config.bg_item_end_color }} 100%);
+	background: -moz-linear-gradient(to bottom, {{ service_config.bg_item_start_color }} 0%, {{ service_config.bg_item_end_color }} 100%);
+	background: linear-gradient(to bottom, {{ service_config.bg_item_start_color }} 0%, {{ service_config.bg_item_end_color }} 100%);
+}
+.service-block-four .inner-box .color-layer:before{
+	background: {{ service_config.bg_item_start_hover_color }};
+}
+
+.service-block-four .inner-box .color-layer:after{
+	background: {{ service_config.bg_item_end_hover_color }};
+}
+
+.service-block-five .inner-box .icon-box .dott-layer:before{
+	    background-color:{{ service_config.dot_color }};
+    }
+
+    .service-block-five .inner-box .icon-box .border-layer{
+	    border:1px dashed {{ service_config.border_color }};
+    }
+
+    .service-block-five .inner-box .learn-more:hover,
+    .service-block-five .inner-box h5 a:hover{
+	    color:{{ service_config.learn_more_btn_hover_color }};
+    }
+    .service-block-five .inner-box .learn-more{
+	    color:{{ service_config.learn_more_btn_color }};
+    }
+    .service-block-five .inner-box .text {
+        overflow: hidden;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-line-clamp: 8;
+        -webkit-box-orient: vertical;
+    }
+.service-block-four .inner-box .arrow-icon{
+	color:{{ service_config.bg_btn_icon_color }};
+	border:{{ service_config.bg_btn_boarder_width }}px solid {{ service_config.bg_btn_boarder_color }};
+	background: -webkit-linear-gradient(to bottom, {{ service_config.bg_btn_start_hover_color }} 0%, {{ service_config.bg_btn_end_hover_color }} 100%);
+	background: -moz-linear-gradient(to bottom, {{ service_config.bg_btn_start_hover_color }} 0%, {{ service_config.bg_btn_end_hover_color }} 100%);
+	background: linear-gradient(to bottom, {{ service_config.bg_btn_start_hover_color }} 0%, {{ service_config.bg_btn_end_hover_color }} 100%);
+}
+    .service-config-btn{
+    color:{{ service_config.btn_txt_color }} !important;
+	background: -webkit-linear-gradient(to right, {{ service_config.btn_start_color }} 0%, {{ service_config.btn_end_color }} 100%);
+    background: -moz-linear-gradient(to right, {{ service_config.btn_start_color }} 0%, {{ service_config.btn_end_color }} 100%);
+    background: linear-gradient(to right, {{ service_config.btn_start_color }} 0%, {{ service_config.btn_end_color }} 100%);
+                               }
+
+    .service-config-btn:before{
+	background: -webkit-linear-gradient(to left, {{ service_config.btn_start_hover_color }} 0%, {{ service_config.btn_end_hover_color }} 100%);
+	background: -moz-linear-gradient(to left, {{ service_config.btn_start_hover_color }} 0%, {{ service_config.btn_end_hover_color }} 100%);
+	background: linear-gradient(to left, {{ service_config.btn_start_hover_color }} 0%, {{ service_config.btn_end_hover_color }} 100%);
+    }
+    .service-config-btn:hover{
+    color:{{ service_config.btn_txt_hover_color }} !important;
+    }
+
+
+
+.contact-info-section .info-box .box-inner .icon{
+	color:{{ contact_config.contact_config_icon_color }};
+	background: -webkit-linear-gradient(to bottom, {{ contact_config.bg_contact_config_icon_start_color }} 0%, {{ contact_config.bg_contact_config_icon_end_color }} 100%);
+	background: -moz-linear-gradient(to bottom, {{ contact_config.bg_contact_config_icon_start_color }} 0%, {{ contact_config.bg_contact_config_icon_end_color }} 100%);
+	background: linear-gradient(to bottom, {{ contact_config.bg_contact_config_icon_start_color }} 0%, {{ contact_config.bg_contact_config_icon_end_color }} 100%);
+}
+
+.contact-form .form-group .icon{
+	color:{{ contact_config.contact_form_icon_color }};
+}
+
+    .contact-sub-btn{
+    color:{{ contact_config.btn_contact_form_txt_color }} !important;
+	background: -webkit-linear-gradient(to right, {{ contact_config.btn_contact_form_start_color }} 0%, {{ contact_config.btn_contact_form_end_color }} 100%);
+    background: -moz-linear-gradient(to right, {{ contact_config.btn_contact_form_start_color }} 0%, {{ contact_config.btn_contact_form_end_color }} 100%);
+    background: linear-gradient(to right, {{ contact_config.btn_contact_form_start_color }} 0%, {{ contact_config.btn_contact_form_end_color }} 100%);
+                               }
+
+    .contact-sub-btn:before{
+	background: -webkit-linear-gradient(to left, {{ contact_config.btn_contact_form_start_hover_color }} 0%, {{ contact_config.btn_contact_form_end_hover_color }} 100%);
+	background: -moz-linear-gradient(to left, {{ contact_config.btn_contact_form_start_hover_color }} 0%, {{ contact_config.btn_contact_form_end_hover_color }} 100%);
+	background: linear-gradient(to left, {{ contact_config.btn_contact_form_start_hover_color }} 0%, {{ contact_config.btn_contact_form_end_hover_color }} 100%);
+    }
+    .contact-sub-btn:hover{
+    color:{{ contact_config.btn_contact_form_txt_hover_color }} !important;
+    }
+
+
+
+
+
+ .blog-config-btn{
+    color:{{ blog_config.btn_txt_color }} !important;
+	background: -webkit-linear-gradient(to right, {{ blog_config.btn_start_color }} 0%, {{ blog_config.btn_end_color }} 100%);
+    background: -moz-linear-gradient(to right, {{ blog_config.btn_start_color }} 0%, {{ blog_config.btn_end_color }} 100%);
+    background: linear-gradient(to right, {{ blog_config.btn_start_color }} 0%, {{ blog_config.btn_end_color }} 100%);
+                               }
+
+ .blog-config-btn:before{
+	background: -webkit-linear-gradient(to left, {{ blog_config.btn_start_hover_color }} 0%, {{ blog_config.btn_end_hover_color }} 100%);
+	background: -moz-linear-gradient(to left, {{ blog_config.btn_start_hover_color }} 0%, {{ blog_config.btn_end_hover_color }} 100%);
+	background: linear-gradient(to left, {{ blog_config.btn_start_hover_color }} 0%, {{ blog_config.btn_end_hover_color }} 100%);
+    }
+ .blog-config-btn:hover{
+    color:{{ blog_config.btn_txt_hover_color }} !important;
+    }
+.news-block-three .inner-box .lower-content .post-meta li a .icon{
+	color:{{ blog_config.item_calender_icon_color }};
+}
+
+
+
+
+
+.styled-pagination li.active a,
+.styled-pagination li:hover a{
+	color:#ffffff;
+	background: -webkit-linear-gradient(to right, {{ page_setup.pagination_btn_start_color }} 0%, {{ page_setup.pagination_btn_end_color }} 100%);
+	background: -moz-linear-gradient(to right, {{ page_setup.pagination_btn_start_color }} 0%, {{ page_setup.pagination_btn_end_color }} 100%);
+	background: linear-gradient(to right, {{ page_setup.pagination_btn_start_color }} 0%, {{ page_setup.pagination_btn_end_color }} 100%);
+}
+.sidebar .search-box .form-group button{
+	color:{{ page_setup.sidebar_search_color }};
+	background:{{ page_setup.sidebar_search_btn_color }};
+}
+
+
+    .title:before{
+	    background:url({{ page_setup.title_icon.url }}) no-repeat;
+    }
+    .title:after{
+	    background:url({{ page_setup.title_icon.url }}) no-repeat;
+    }
+
+
+/* Btn header */
+
+.quote-btn-two{
+	background-color:{{ page_setup.quote_btn_two_color }};
+}
+
+.quote-btn-two:before{
+    background-color: {{ page_setup.quote_btn_two_hover_color }};
+}
+
+.quote-btn-one{
+	background-color:{{ page_setup.quote_btn_one_color }};
+}
+
+.quote-btn-one:before{
+    background-color: {{ page_setup.quote_btn_one_hover_color }};
+}
+
+
+/* footer */
+
+
+.main-footer.style-two{
+	background: #2A327B;
+	background: -webkit-linear-gradient(to right, {{ page_setup.bg_footer_start_color }} 0%, {{ page_setup.bg_footer_end_color }} 100%);
+	background: -moz-linear-gradient(to right, {{ page_setup.bg_footer_start_color }} 0%, {{ page_setup.bg_footer_end_color }} 100%);
+	background: linear-gradient(to right, {{ page_setup.bg_footer_start_color }} 0%, {{ page_setup.bg_footer_end_color }} 100%);
+}
+
+
+
+    </style>
+</head>
+
+<body class="hidden-bar-wrapper">
+
+
+{% block body %}
+{% endblock %}
+<!-- Scroll To Top -->
+<div class="back-to-top scroll-to-target show-back-to-top" data-target="html">TOP</div>
+
+<script src="{% static '' %}js/jquery.js"></script>
+<script src="{% static '' %}js/popper.min.js"></script>
+<script src="{% static '' %}js/bootstrap.min.js"></script>
+<script src="{% static '' %}js/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="{% static '' %}js/jquery.fancybox.js"></script>
+<script src="{% static '' %}js/appear.js"></script>
+<script src="{% static '' %}js/parallax.min.js"></script>
+<script src="{% static '' %}js/tilt.jquery.min.js"></script>
+<script src="{% static '' %}js/jquery.paroller.min.js"></script>
+<script src="{% static '' %}js/owl.js"></script>
+<script src="{% static '' %}js/wow.js"></script>
+<script src="{% static '' %}js/mixitup.js"></script>
+<script src="{% static '' %}js/nav-tool.js"></script>
+<script src="{% static '' %}js/jquery-ui.js"></script>
+<script src="{% static '' %}js/script.js"></script>
+<script src="{% static '' %}js/color-settings.js"></script>
+
+</body>
+
+<!-- Mirrored from themerange.net/html/merix/merix/index-6.html by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 01 Nov 2021 08:58:39 GMT -->
+</html>
+
